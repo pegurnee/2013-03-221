@@ -1,0 +1,18 @@
+; Lab 7 - Base+Offset Memory Addressing Mode
+; @author Eddie Gurnee
+; @version 11/04/2013
+
+0011 0000 0101 0000 ; 0. start code at x3050
+1110 000 010101111	; 1. Load address x3100 to R0: LEA R0, x3100
+;  x3100
+; -x3051
+;  x00AF
+;    0 1010 1111
+0110 001 000 000000	; 2. load [address at R0 (+0)] to R1: LDR R1, [R0 + 0]
+0110 010 000 000001	; 3. load [address at R0 (+1)] to R2: LDR R2, [R0 + 1]
+0110 011 000 000010	; 4. load [address at R0 (+2)] to R3: LDR R3, [R0 + 2]
+0110 100 000 000011	; 5. load [address at R0 (+3)] to R4: LDR R4, [R0 + 3]
+0111 100 000 010000	; 6. store R4 to [address at R0 (+16)]: STR R4, [R0 + x10]
+0111 011 000 010001 ; 7. store R3 to [address at R0 (+17)]: STR R3, [R0 + x11]
+0111 010 000 010010 ; 8. store R2 to [address at R0 (+18)]: STR R2, [R0 + x12]
+0111 001 000 010011 ; 9. store R1 to [address at R0 (+19)]: STR R1, [R0 + x13]

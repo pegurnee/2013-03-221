@@ -1,0 +1,22 @@
+; Lab #4 LC-3 Tutorial Data - Binary
+;
+; @author Eddie Gurnee
+; @version 10/14/2013
+
+0011 0001 0000 0000		;starts data at line x3100
+0000 0000 0000 0001		;data value 01
+0000 0000 0000 0010		;data value 02
+0000 0000 0000 0011		;data value 03
+0000 0000 0000 0100		;data value 04
+0000 0000 0000 0101		;data value 05
+0000 0000 0000 0110		;data value 06
+0000 0000 0000 0111		;data value 07
+0000 0000 0000 1000		;data value 08
+0000 0000 0000 1001		;data value 09
+0000 0000 0000 1010		;data value 10
+
+
+
+
+
+

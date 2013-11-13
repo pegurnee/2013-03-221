@@ -1,0 +1,16 @@
+; Lab #4 LC-3 Tutorial Data - Hexadecimal
+;
+; @author Eddie Gurnee
+; @version 10/14/2013
+
+3100	;starts data at line x3100
+0001	;data value 01
+0002	;data value 02
+0003	;data value 03
+0004	;data value 04
+0005	;data value 05
+0006	;data value 06
+0007	;data value 07
+0008	;data value 08
+0009	;data value 09
+000A	;data value 10

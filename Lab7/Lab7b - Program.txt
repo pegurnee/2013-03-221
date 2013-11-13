@@ -1,0 +1,17 @@
+; Lab 7 - Indirect Memory Addressing Mode
+; @author Eddie Gurnee
+; @version 11/04/2013
+
+0011 0000 0101 0000 ; 0. start code at x3050
+1010 001 011001111	; 1. load [[x3120]] to R1: LDI R1, [[x3120]]
+;  x3120
+; -x3051
+;  x00CF
+;    0 1100 1111
+1010 010 011001111	; 2. load [[x3121]] to R2: LDI R2, [[x3121]]
+1010 011 011001111	; 3. load [[x3122]] to R3: LDI R3, [[x3122]]
+1010 100 011001111	; 4. load [[x3123]] to R4: LDI R4, [[x3123]]
+1011 100 011001111	; 5. store R4 to [[x3124]]: STI R4, [[x3124]]
+1011 011 011001111	; 6. store R3 to [[x3125]]: STI R3, [[x3125]]
+1011 010 011001111	; 7. store R2 to [[x3126]]: STI R2, [[x3126]]
+1011 001 011001111	; 8. store R1 to [[x3127]]: STI R1, [[x3127]]

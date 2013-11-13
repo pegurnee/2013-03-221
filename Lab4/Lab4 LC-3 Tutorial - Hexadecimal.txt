@@ -1,0 +1,33 @@
+; Lab #4 LC-3 Tutorial - Hexadecimal
+;
+; @author Eddie Gurnee
+; @version 10/14/2013
+
+3000  	;start the program at location x3000
+5260	;clear R1, to be used for the running sum 
+5720	;clear R4, to be used as a counter
+195A	;load R4 with #10, the number of times to add 
+E4FC	;load the starting address of the data
+6680	;load the next number to be added
+14A1	;increment the pointer
+1243 	;add the next number to the running sum
+193F 	;decrement the counter
+03FB 	;do it again if the counter is not yet zero
+F025	;halt
+
+; Lab #4 LC-3 Tutorial Data - Hexadecimal
+;
+; @author Eddie Gurnee
+; @version 10/14/2013
+
+3100	;starts data at line x3100
+0001	;data value 01
+0002	;data value 02
+0003	;data value 03
+0004	;data value 04
+0005	;data value 05
+0006	;data value 06
+0007	;data value 07
+0008	;data value 08
+0009	;data value 09
+000A	;data value 10
