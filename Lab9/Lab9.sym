@@ -1,0 +1,37 @@
+//Symbol Name		Page Address
+//----------------	------------
+//	BITPATTERN              30A4
+//	BTST_Lead1              3050
+//	BTST_Print              3051
+//	BTST_Start              304C
+//	BTST_msb1               3060
+//	BTST_one                305F
+//	BTST_saveR1             3062
+//	BTST_saveR2             3063
+//	BTST_saveR3             3064
+//	BTST_saveR4             3065
+//	BTST_saveR5             3066
+//	BTST_saveR6             3067
+//	BTST_saveR7             3061
+//	BTST_zero               305E
+//	ORIGINAL                3079
+//	OUT_orig                308D
+//	OUT_rotated             3098
+//	PROMPT                  307A
+//	ROTATED                 30A3
+//	ROTATELEFT              3023
+//	ROT_Start               302B
+//	ROT_Zero                302F
+//	ROT_msb1                303B
+//	ROT_saveR1              303D
+//	ROT_saveR2              303E
+//	ROT_saveR3              303F
+//	ROT_saveR4              3040
+//	ROT_saveR5              3041
+//	ROT_saveR7              303C
+//	STORE_BITS              3042
+//	TIMES_TEN               3068
+//	TIM_Start               306F
+//	TIM_saveR1              3077
+//	TIM_saveR3              3078
+//	TIM_saveR7              3076
