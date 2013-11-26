@@ -1,6 +1,6 @@
 ; Lab 9 - Assembly Language Rotation with Input and Output
 ; @author Eddie Gurnee
-; @version 11/20/2013
+; @version 11/26/2013
 
 .orig x3000
 	;R0 = used to read in characters from the CONSOLE with GETC and to print from the address with PUTS
