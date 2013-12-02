@@ -11,103 +11,99 @@ LD R3, ORIGINAL	;load data at ORIGINAL to R3 (data edit)
 LEA R0, PROMPT	;
 PUTS			;
 
-GETC			;
-JSR VALIDATE_DIGIT	;
-ADD R1, R1, 0	;
+GETC				;
+JSR VALIDATE_DIGIT	; checks if it is a number
+ADD R1, R1, 0		; if it is a digit, jumps forward
 BRz CHECK1
 
-AND R0, R0, 0		;clears R0
-ADD R0, R0, xA		;adds 10 to R7 (the decimal value for new line)
-OUT					;prints a new line
-LEA R0, OUT_nan		;
-PUTS				;
-BR RESTART
+AND R0, R0, 0		; clears R0
+ADD R0, R0, xA		; adds 10 to R7 (the decimal value for new line)
+OUT					; prints a new line
+LEA R0, OUT_nan		; 
+PUTS				; prints out the NaN error
+BR RESTART			; jumps to RESTART
 
 CHECK1
 OUT				;
-ADD R1, R0, 0	;
-JSR TIMES_TEN	;
+ADD R1, R0, 0	; 
+JSR TIMES_TEN	; multiplies the first number by ten
 
-GETC			;
-JSR VALIDATE_DIGIT	;
-ADD R1, R1, 0	;
+GETC				;
+JSR VALIDATE_DIGIT	; checks if it is a number
+ADD R1, R1, 0		; if it's a digit, jump forward
 BRz CHECK2
 
-AND R0, R0, 0		;clears R0
-ADD R0, R0, xA		;adds 10 to R7 (the decimal value for new line)
-OUT					;prints a new line
+AND R0, R0, 0		; clears R0
+ADD R0, R0, xA		; adds 10 to R7 (the decimal value for new line)
+OUT					; prints a new line
 LEA R0, OUT_nan		;
-PUTS				;
-BR RESTART
-
+PUTS				; prints out the NaN error
+BR RESTART			; jumps to RESTART
 
 CHECK2
-OUT				;
-ADD R1, R0, 0	;
-AND R1, R1, xF	;
-ADD R2, R2, R1	;
+OUT				; 
+ADD R1, R0, 0	; moves ASCII to R1
+AND R1, R1, xF	; ASCII to number
+ADD R2, R2, R1	; adds the two numbers together
 
-JSR VALIDATE		;
+JSR VALIDATE		; validates the number is within range
 			
-AND R0, R0, 0		;clears R0
-ADD R0, R0, xA		;adds 10 to R7 (the decimal value for new line)
-OUT					;prints a new line
+AND R0, R0, 0		; clears R0
+ADD R0, R0, xA		; adds 10 to R7 (the decimal value for new line)
+OUT					; prints a new line
 
-ADD R2, R2, 0		;
-BRzp VALID			;
+ADD R2, R2, 0		; 
+BRzp VALID			; if the number is valid, jump to valid
 LEA R0, OUT_invalid	;
-PUTS				;
+PUTS				; prints the invalid comment
 
 RESTART
-AND R0, R0, 0		;clears R0
-ADD R0, R0, xA		;adds 10 to R7 (the decimal value for new line)
-OUT					;prints a new line
+AND R0, R0, 0		; clears R0
+ADD R0, R0, xA		; adds 10 to R7 (the decimal value for new line)
+OUT					; prints a new line
 
-AND R0, R0, 0		;clears R0
-AND R1, R0, 0		;clears R1
-AND R2, R0, 0		;clears R2
-AND R3, R0, 0		;clears R3
-AND R4, R0, 0		;clears R4
-AND R5, R0, 0		;clears R5
-AND R6, R0, 0		;clears R6
-AND R7, R0, 0		;clears R7
+AND R0, R0, 0		; clears R0
+AND R1, R0, 0		; clears R1
+AND R2, R0, 0		; clears R2
+AND R3, R0, 0		; clears R3
+AND R4, R0, 0		; clears R4
+AND R5, R0, 0		; clears R5
+AND R6, R0, 0		; clears R6
+AND R7, R0, 0		; clears R7
 BR START			;
 
 VALID
 
-JSR ROTATELEFT		;
+JSR ROTATELEFT		; jumps to the ROTATELEFT subroutine
 
-LEA R0, OUT_orig	;
-PUTS				;
-LD R1, ORIGINAL		;
-LEA R2, BITPATTERN	;
-JSR STORE_BITS		;
-LEA R0, BITPATTERN	;
-PUTS				;
+LEA R0, OUT_orig	; 
+PUTS				; prints the original number prompt
+LD R1, ORIGINAL		; 
+LEA R2, BITPATTERN	; loads the first address to R2 for the STORE_BITS subroutine
+JSR STORE_BITS		; jumps to the STORE_BITS subroutine
+LEA R0, BITPATTERN	; 
+PUTS				; prints the pattern
 
-AND R0, R0, 0		;clears R0
-ADD R0, R0, xA		;adds 10 to R7 (the decimal value for new line)
-OUT					;prints a new line
-
-JSR STORE_BITS		;
+AND R0, R0, 0		; clears R0
+ADD R0, R0, xA		; adds 10 to R7 (the decimal value for new line)
+OUT					; prints a new line
 
 LEA R0, OUT_rotated	;
-PUTS				;
+PUTS				; prints the rotated number prompt
 LD R1, ROTATED		;
 LEA R2, BITPATTERN	;
-JSR STORE_BITS		;
-
+JSR STORE_BITS		; jumps to the STORE_BITS subroutine
 LEA R0, BITPATTERN	;
-PUTS				;
+PUTS				; prints out the rotated pattern
 
 HALT
 
-ORIGINAL .fill xD10B 					;the initial 16-bit pattern to rotate
-PROMPT .stringz "AMOUNT [00 - 16]: " 	;prints the prompt to enter a rotate number
+ORIGINAL .fill xD10B 					; the initial 16-bit pattern to rotate
+PROMPT .stringz "AMOUNT [00 - 16]: " 	; prints the prompt to enter a rotate number
 OUT_orig .stringz "ORIGINAL: "			;
 OUT_rotated .stringz "ROTATED:  "		;
-ROTATED .blkw 1			;space set aside to hold the rotated 16 bit pattern
-BITPATTERN .blkw 17		;space set aside in memory to print the original and rotated number
+ROTATED .blkw 1			; space set aside to hold the rotated 16 bit pattern
+BITPATTERN .blkw 17		; space set aside in memory to print the original and rotated number
 OUT_invalid .stringz "Number out of bounds, try again."
 OUT_nan .stringz "That's not a number, try again."
 
@@ -176,7 +172,7 @@ STORE_BITS
 	; R5 = the leading 1
 	; R6 = count
 	
-		ST R7, BTST_saveR7	;
+		ST R7, BTST_saveR7	; stores register data to be used
 		ST R1, BTST_saveR1	;
 		ST R2, BTST_saveR2	;
 		ST R3, BTST_saveR3	;
@@ -184,7 +180,7 @@ STORE_BITS
 		ST R5, BTST_saveR5	;
 		ST R6, BTST_saveR6	;
 		
-		LD R5, BTST_msb1	;
+		LD R5, BTST_msb1	; loads into R5 the leading one
 		
 		AND R6, R6, 0		; clear R6
 		ADD R6, R6, 15		; sets the count to 16
@@ -239,10 +235,10 @@ TIMES_TEN
 		ST R1, TIM_saveR1	;
 		ST R3, TIM_saveR3	;
 		
-		AND R1, R1, xF		;
-		AND R2, R2, 0		;
-		AND R3, R3, 0		;
-		ADD R3, R3, 10		;
+		AND R1, R1, xF		; removes the leading bits
+		AND R2, R2, 0		; clears R2
+		AND R3, R3, 0		; clears R3
+		ADD R3, R3, 10		; sets the count to 10
 		
 		TIM_Start
 			ADD R2, R1, R2	;
