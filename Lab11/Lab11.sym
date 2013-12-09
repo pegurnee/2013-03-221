@@ -1,0 +1,37 @@
+//Symbol Name		Page Address
+//----------------	------------
+//	BASE                    30D3
+//	DPOP                    30A2
+//	DPOP_Exit               30B2
+//	DPOP_Fail               30B1
+//	DPOP_base               30B9
+//	DPOP_saveR2             30B6
+//	DPOP_saveR3             30B7
+//	DPOP_saveR7             30B8
+//	DPUSH                   308A
+//	DPUSH_Exit              309A
+//	DPUSH_Fail              3099
+//	DPUSH_max               30A1
+//	DPUSH_saveR2            309E
+//	DPUSH_saveR3            309F
+//	DPUSH_saveR7            30A0
+//	LAB_base                3034
+//	LAB_ln                  3035
+//	LAB_out1                3037
+//	LAB_out2                3047
+//	LAB_out3                305A
+//	LAB_out4                3068
+//	LAB_sp                  3036
+//	MAX                     30D4
+//	PEEK                    3077
+//	PEEK_Exit               3084
+//	PEEK_Fail               3083
+//	PEEK_base               3089
+//	PEEK_saveR3             3087
+//	PEEK_saveR7             3088
+//	POP                     30BA
+//	PUSH                    30C3
+//	Save1                   30D5
+//	Save2                   30D6
+//	fail_exit               30CE
+//	success_exit            30CA
